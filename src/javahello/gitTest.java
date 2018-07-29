@@ -4,7 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.String;
 
 public class gitTest {
     private String str111;
-    private String str12;
+    private String str112;
     private String str13;
     private String str14;
     private String str15;
