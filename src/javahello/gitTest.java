@@ -3,8 +3,6 @@ package javahello;
 import com.sun.org.apache.xpath.internal.operations.String;
 
 public class gitTest {
-    private String str29;
-
     private String str11;
     private String str12;
     private String str13;
@@ -23,4 +21,5 @@ public class gitTest {
     private String str26;
     private String str27;
     private String str28;
+    private String str29;
 }
