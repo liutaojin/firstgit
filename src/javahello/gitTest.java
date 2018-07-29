@@ -10,4 +10,5 @@ public class gitTest {
     private String str21;
     private String str22;
     private String str23;
+    private String str24;
 }
