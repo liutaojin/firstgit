@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom list</title>
+
+    <style type="text/css">
+        dl dd{
+            margin:0px;
+        }
+
+        dl{
+            height: 16px;
+        }
+        .open{
+            overflow: visible;
+        }
+        .close{
+            overflow: hidden;
+        }
+        dl dt{
+            color: #ff8000;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        function list2(node) {
+            //var oDlNode = document.getElementsByTagName("dl")[0];
+            //oDlNode.style.overflow="visible";
+
+            var oDlNode = node.parentNode;
+             if(oDlNode.className == "close"){
+                oDlNode.className = "open";
+             }else{
+                 oDlNode.className = "close";
+             }
+        }
+        function list(node) {
+            var oDlNode = node.parentNode;
+            var collDlNodes = document.getElementsByTagName("dl");
+            for(var x=0; x<collDlNodes.length; ++x){
+                if(collDlNodes[x] == oDlNode){
+                    if(oDlNode.className == "close"){
+                        oDlNode.className = "open";
+                    }else{
+                        oDlNode.className = "close";
+                    }
+                }else {
+                    collDlNodes[x].className = "close";
+                }
+            }
+        }
+    </script>
+    <dl class="close">
+        <dt onclick="list(this)">显示条目一</dt>
+        <dd>展开列表内容1</dd>
+        <dd>展开列表内容1</dd>
+        <dd>展开列表内容1</dd>
+        <dd>展开列表内容1</dd>
+    </dl>
+    <dl class="close">
+        <dt onclick="list(this)">显示条目二</dt>
+        <dd>展开列表内容2</dd>
+        <dd>展开列表内容2</dd>
+        <dd>展开列表内容2</dd>
+        <dd>展开列表内容2</dd>
+    </dl>
+    <dl class="close">
+        <dt onclick="list(this)">显示条目三</dt>
+        <dd>展开列表内容3</dd>
+        <dd>展开列表内容3</dd>
+        <dd>展开列表内容3</dd>
+        <dd>展开列表内容3</dd>
+    </dl>
+</body>
+</html>

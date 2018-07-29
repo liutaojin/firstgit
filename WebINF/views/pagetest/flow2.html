@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="smartMenu.css" rel="stylesheet">
+    <script src="jquery-1.8.1.min.js"></script>
+    <script src="jQuery.fontFlex.js"></script>
+    <script src="jquery-smartMenu.js"></script>
+    <script src="raphael-min.js"></script>
+    <script src="jQuery.fontFlex.js"></script>
+
+    <style>
+        body div{ background:#333333;}
+        #paperBox1{ background:#70AD47;}
+        .exp1 {color:#FFFFFF;line-height:80px;}
+        rect{cursor:pointer}
+        text{cursor:pointer}
+        #spinner{ position:absolute;
+            left:10px;top:10px;}
+    </style>
+</head>
+<body>
+<div>
+    <h1 class="exp1">
+        <center>任务计划流程</center>
+    </h1>
+    <!-- 在这上面画图 -->
+    <div id="paper">
+        <div id="paperBox1"></div>
+        <div id="spinner"></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $('h1').fontFlex(10, 120, 40);//字体大小自适应
+    console.log(Raphael.svg);//查看是否支持Raphael,true为支持
+    var window_w = $(window).width();//浏览器窗口可见宽度
+    var window_h = $(window).height();////浏览器窗口可见高度
+    var rect_w = window_w / 8;//矩形的宽
+    var rect_h = window_h / 20;//矩形的高
+    var rect_r = rect_w / 15;//矩形圆角
+    var arrow_h = 35; // 箭头高
+    console.log(window_w);
+    console.log(window_h);
+    console.log(rect_w);
+    console.log(rect_h);
+    //创建一个画布
+    var paper = new Raphael("paper",window_w,window_h + 200);
+    //直线箭头
+    var arrow1 = paper.path("M21.786,12.876l7.556-4.363l-7.556-4.363v2.598H2.813v3.5h18.973V12.876z" ).attr({fill: "#5B9BD5", stroke: "none"});
+    var arrow2 = arrow1.clone();
+    var arrow3_1_1 = arrow1.clone();
+    var arrow3_1_2 = arrow1.clone();
+
+    var arrow3_2_1 = arrow1.clone();
+    var arrow3_2_2 = arrow1.clone();
+    var arrow3_2_3 = arrow1.clone();
+
+    var arrow3_3_1 = arrow1.clone();
+    var arrow3_3_2 = arrow1.clone();
+    var arrow3_3_3 = arrow1.clone();
+
+    var arrow3_4_1 = arrow1.clone();
+    var arrow3_4_2 = arrow1.clone();
+    var arrow3_4_3 = arrow1.clone();
+
+    var arrow3 = arrow1.clone();
+    var arrow4 = arrow1.clone();
+    var arrow5 = arrow1.clone();
+    var arrow6 = arrow1.clone();
+
+    var attr = {
+        fill: "#70AD47",//填充
+        stroke: "none",//边框
+        "stroke-width": 1,
+        "stroke-linejoin": "round"
+    };
+    //画圆角矩形
+    var rect1 = paper.rect((window_w-rect_w)*0.5,0,rect_w,rect_h,rect_r).attr(attr);
+    var rect2 = moveRectToRectDown(paper,rect1);
+
+    var rect3_1_1 = paper.rect((window_w-rect_w)*0.2,( arrow_h  + rect_h ) * 2.5,rect_w,rect_h,rect_r).attr(attr);
+    var rect3_1_2 = moveRectToRectDown(paper,rect3_1_1);
+    var rect3_1_3 = moveRectToRectDown(paper,rect3_1_2);
+
+    var rect3_2_1 = paper.rect((window_w-rect_w)*0.4 ,( arrow_h  + rect_h ) * 2.5,rect_w,rect_h,rect_r).attr(attr);
+    var rect3_2_2 = moveRectToRectDown(paper,rect3_2_1);
+    var rect3_2_3 = moveRectToRectDown(paper,rect3_2_2);
+    var rect3_2_4 = moveRectToRectDown(paper,rect3_2_3);
+
+    var rect3_3_1 = paper.rect(window_w-(window_w-rect_w)*0.4-rect_w,( arrow_h  + rect_h ) * 2.5,rect_w,rect_h,rect_r).attr(attr);
+    var rect3_3_2 = moveRectToRectDown(paper,rect3_3_1);
+    var rect3_3_3 = moveRectToRectDown(paper,rect3_3_2);
+    var rect3_3_4 = moveRectToRectDown(paper,rect3_3_3);
+
+    var rect3_4_1 = paper.rect(window_w-(window_w-rect_w)*0.2-rect_w,( arrow_h  + rect_h ) * 2.5,rect_w,rect_h,rect_r).attr(attr);
+    var rect3_4_2 = moveRectToRectDown(paper,rect3_4_1);
+    var rect3_4_3 = moveRectToRectDown(paper,rect3_4_2);
+    var rect3_4_4 = moveRectToRectDown(paper,rect3_4_3);
+
+    //文字描述
+    insertRectText(paper,rect1,"1.等待激活");
+    insertRectText(paper,rect2,"2.日切");
+    insertRectText(paper,rect3_1_1,"下载文件信息信息");
+
+
+    //直接箭头移动
+    moveArrowToRectDown(rect1,arrow1,90,2,null,null);
+    moveArrowToRectDown(rect2,arrow2,90,2,null,null);
+
+    moveArrowToRectDown(rect3_1_1,arrow3_1_1,90,2,null,null);
+    moveArrowToRectDown(rect3_1_2,arrow3_1_2,90,2,null,null);
+
+    moveArrowToRectDown(rect3_2_1,arrow3_2_1,90,2,null,null);
+    //moveArrowToRectDown(rect3_2_2,arrow3_2_2,90,2,null);
+    moveArrowToRectDown(rect3_2_3,arrow3_2_3,90,2,null,null);
+
+    moveArrowToRectDown(rect3_3_1,arrow3_3_1,90,2,null,null);
+    moveArrowToRectDown(rect3_3_2,arrow3_3_2,90,2,null,null);
+    moveArrowToRectDown(rect3_3_3,arrow3_3_3,90,2,null,null);
+
+
+    moveArrowToRectDown(rect3_4_1,arrow3_4_1,90,2,null,null);
+    moveArrowToRectDown(rect3_4_2,arrow3_4_2,90,2,null,null);
+    moveArrowToRectDown(rect3_4_3,arrow3_4_3,90,2,null,null);
+    //画边框
+    var rectbox3 = drawRectToRect(paper,rect3_1_1,rect3_4_4,( arrow_h  + rect_h ) * 0.5);
+    var rectbox3_1 = drawRectToRect(paper,rect3_1_1,rect3_1_3,( arrow_h  + rect_h ) * 0.15);
+    var rectbox3_2_1 = drawRectToRect(paper,rect3_2_1,rect3_2_2,( arrow_h  + rect_h ) * 0.05);
+    var rectbox3_2_2 = drawRectToRect(paper,rect3_2_3,rect3_2_4,( arrow_h  + rect_h ) * 0.05);
+    var rectbox3_3 = drawRectToRect(paper,rect3_3_1,rect3_3_4,( arrow_h  + rect_h ) * 0.15);
+
+    //对应从积分计算到完
+    moveArrowToRectDown(rectbox3,arrow3,90,2,null,18);//最大外框下方箭头
+    moveArrowToRectDown(rectbox3_2_1,arrow3_2_2,90,1.1,-8,5);
+    var xx = Math.round($(rectbox3.node).attr("y"))*1+$(rectbox3.node).attr("height")*1+15+arrow_h;
+    console.log(xx);
+    var rect4 = paper.rect((window_w-rect_w)*0.5, xx ,rect_w,rect_h,rect_r).attr(attr);
+    moveArrowToRectDown(rect4,arrow4,90,2,null,null);
+    var rect5_1 = paper.rect((window_w-rect_w)*0.4 ,( arrow_h  + rect_h ) * 8.5 ,rect_w,rect_h,rect_r).attr(attr);
+    var rect5_2 = paper.rect(window_w-(window_w-rect_w)*0.4-rect_w,( arrow_h  + rect_h ) * 8.5,rect_w,rect_h,rect_r).attr(attr);
+    var rectbox5 = drawRectToRect(paper,rect5_1,rect5_2,( arrow_h  + rect_h ) * 0.3);
+    moveArrowToRectDown(rectbox5,arrow5,90,2,null,18);//外框下方箭头
+    var rect6 = paper.rect((window_w-rect_w)*0.5 ,( arrow_h  + rect_h ) * 10 ,rect_w,rect_h,rect_r).attr(attr);
+    moveArrowToRectDown(rect6,arrow6,90,2,null,null);//外框下方箭头
+    var rect6 = paper.rect((window_w-rect_w)*0.5 ,( arrow_h  + rect_h ) * 11 ,rect_w,rect_h,rect_r).attr(attr);
+
+    //arrow2.transform("t650,300r90s4")
+    //给矩形增加居中的文字
+    function insertRectText(root,rectangle,str){
+        var x = Math.round($(rectangle.node).attr("x"));
+        var y = Math.round($(rectangle.node).attr("y"));
+        var w = $(rectangle.node).attr("width");
+        var h = $(rectangle.node).attr("height");
+        var textStr = root.text(x + w / 2,y + h / 2,str).attr({fill:"#FFFFFF"});
+        textStr.attr({
+            "fill":"#FFFFFF",
+            "font-size":"15px",
+        });
+        rectangle.data("cooperative", textStr);
+    }
+    //将箭头移动到矩形下方
+    function moveArrowToRectDown(rectangle,arrowbox,angle,scale,offset_x,offset_y){
+        var angleangle = angle == null ?0:angle; //默认旋转90度
+        var scalescale = scale == null ?1:scale;
+        var offset_yoffset_y =offset_y ==null?0:offset_y;
+        var offset_xoffset_x =offset_x ==null?0:offset_x;
+        var x = Math.round($(rectangle.node).attr("x"));
+        var y = Math.round($(rectangle.node).attr("y"));
+        var w = $(rectangle.node).attr("width");
+        var h = $(rectangle.node).attr("height");
+        console.log("x=" + x);
+        console.log("y=" + y);
+        console.log("w=" + w);
+        console.log("h=" + h);
+        var xxNew = x + w*0.5 -8*scale + offset_x;
+        var yyNew = y + h*1 + offset_y;
+        var pos = "t"+ xNew + "," + yNew + 'r' + angle + 's' + scale;
+        console.log(pos);
+        arrowbox.transform(pos);
+    }
+
+    //将一个矩形移动到另一个矩形下方
+    function moveRectToRectDown(root,rectangle){
+        var x = Math.round($(rectangle.node).attr("x"));
+        var y = Math.round($(rectangle.node).attr("y"));
+        var w = Math.round($(rectangle.node).attr("width"));
+        var h = Math.round($(rectangle.node).attr("height"));
+        var r = $(rect1.node).attr("rx");
+        var rectNew = root.rect(x,y + h + arrow_h,w,h,r).attr(attr);
+        return rectNew;
+    }
+
+
+    function drawRectToRect(root,rectangle1,rectangle2,offset){
+        var x1 = Math.round($(rectangle1.node).attr("x"));
+        var y1 = Math.round($(rectangle1.node).attr("y"));
+
+        var x2 = Math.round($(rectangle2.node).attr("x"));
+        var y2 = Math.round($(rectangle2.node).attr("y"));
+        var w2 = Math.round($(rectangle2.node).attr("width"));
+        var h2 = Math.round($(rectangle2.node).attr("height"));
+        x2 += w2;
+        y2 += h2;
+        return drawRect(root,x1,y1,x2,y2,offset);
+    }
+    //在一个矩形外画矩形,传入左上角和右下角的位置
+    function drawRect(root,x1,y1,x2,y2,offset){
+        var offsetoffset =offset == null?0:offset;
+        var x = x1 - offset;
+        var y = y1 - offset;
+        var w = x2 - x1 + 2*offset;
+        var h = y2 - y1+ 2*offset;
+        var rectbox = root.rect(x,y,w,h).attr({stroke: "#F4B183","stroke-width": 1,});
+        return rectbox;
+    }
+
+    //更新圆盘
+    var spinner;
+    function spinner(holderid, R1, R2, count, stroke_width, colour) {
+        var sectorsCount = count || 12,
+                color = colour || "#fff",
+                width = stroke_width || 15,
+                r1 = Math.min(R1, R2) || 35,
+                r2 = Math.max(R1, R2) || 60,
+                cx = r2 + width,
+                cy = r2 + width,
+                spinner = Raphael(holderid, r2 * 2 + width * 2, r2 * 2 + width * 2),
+
+                sectors = [],
+                opacity = [],
+                beta = 2 * Math.PI / sectorsCount,
+
+                pathParams = {stroke: color, "stroke-width": width, "stroke-linecap": "round"};
+        Raphael.getColor.reset();
+        for (var i = 0; i < sectorsCount; i++) {
+            var alpha = beta * i - Math.PI / 2,
+                    cos = Math.cos(alpha),
+                    sin = Math.sin(alpha);
+            opacity[i] = 1 / sectorsCount * i;
+            sectors[i] = spinner.path([["M", cx + r1 * cos, cy + r1 * sin], ["L", cx + r2 * cos, cy + r2 * sin]]).attr(pathParams);
+            if (color == "rainbow") {
+                sectors[i].attr("stroke", Raphael.getColor());
+            }
+        }
+        var tick;
+        (function ticker() {
+            opacity.unshift(opacity.pop());
+            for (var i = 0; i < sectorsCount; i++) {
+                sectors[i].attr("opacity", opacity[i]);
+            }
+            // r.safari();
+            tick = setTimeout(ticker, 1000 / sectorsCount);
+        })();
+        return function () {
+            clearTimeout(tick);
+            spinner.remove();
+        };
+    }
+
+
+
+    rect1.node.onclick = function () {
+        rect1.attr("fill", "red");
+        var x = Math.round($(rect1.node).attr("x"));
+        var y = Math.round($(rect1.node).attr("y"));
+        var w = $(rect1.node).attr("width");
+        var h = $(rect1.node).attr("height");
+        var xx = (x*1 + w*1)+"px";
+        var yy = (80 + y+ h/2 -20 )+"px";
+        console.log("xx="+xx);
+        var remove = spinner("spinner",10, 20, 8, 5, "#FFFF00");
+        $('#spinner').css("left",xx);
+        $('#spinner').css("top",yy);
+    };
+    function change(){
+        var x = Math.round($(rect1.node).attr("x"));
+        var y = Math.round($(rect1.node).attr("y"));
+        var w = $(rect1.node).attr("width");
+        var h = $(rect1.node).attr("height");
+        var xx = (x*1 + w*1)+"px";
+        var yy = (80 + y+ h/2 -20 )+"px";
+        console.log("xx="+xx);
+        //remove();
+        var remove = spinner("spinner",10, 20, 8, 5, "#FFFF00");
+        $('#spinner').css("left",xx);
+        $('#spinner').css("top",yy);
+    }
+
+    var imageMenuData = [
+        [{
+            text: "方法一",
+            func: function() {
+                alert("方法一")
+                rect1.attr("fill", "blue");
+                // remove();
+                change()
+            }
+        }, {
+            text: "方法二",
+            func: function() {
+                alert("方法二")
+                rect1.attr("fill", "yellow");
+                // remove();
+                change()
+            }
+        }],
+        [{
+            text: "方法三",
+            func: function() {
+                alert("方法三")
+                rect1.attr("fill", "#FF84FF");
+                // remove();
+                change()
+            }
+        }]
+    ];
+    //增加右键菜单
+    $(rect1.node).smartMenu(imageMenuData, {
+        name: "image"
+    });
+    $("rect").smartMenu(imageMenuData, {
+        name: "image"
+    });
+    $('text').fontFlex(15, 50, 90);//字体大小自适应
+    //当浏览器窗口大小改变时，设置显示内容的高度
+    window.onresize=function(){
+        //paper.safari()
+    }
+
+</script>
+</html>

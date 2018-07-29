@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单校验</title>
+</head>
+<body>
+
+<script type="text/javascript">
+/*    function checkUser() {
+        var flag;
+        var oUserNode = document.getElementsByName("user")[0];
+        var name = oUserNode.value;
+
+        //定义正则表达式
+        var reg = new RegExp("^[a-z]{4}$","i");
+
+        var oSpanNode = document.getElementById("userspan")
+        //if(name == "abc"){
+        if(reg.test(name)){
+            oSpanNode.innerHTML = "用户名正确".fontcolor("green");
+            flag = true;
+        }else {
+            oSpanNode.innerHTML = "用户名错误".fontcolor("red");
+            flag = false;
+        }
+        return flag;
+    }*/
+
+    function check(name,reg,spanId,okinfo,errinfo) {
+        var flag;
+        var val = document.getElementsByName(name)[0].value;
+
+        var oSpanNode = document.getElementById(spanId);
+        //if(name == "abc"){
+        if(reg.test(val)){
+            oSpanNode.innerHTML = okinfo.fontcolor("green");
+            flag = true;
+        }else {
+            oSpanNode.innerHTML = errinfo.fontcolor("red");
+            flag = false;
+        }
+        return flag;
+    }
+
+    function checkUser() {
+        var reg = /^[a-z]{4}$/i;
+        return check("user", reg, "userspan", "用户名正确","用户名错误");
+    }
+
+    function checkForm() {
+        if(checkUser())
+            return true
+        else
+            return false;
+    }
+
+    function mySubmit() {
+        var oFormNode = document.getElementById("userinfo");
+        oFormNode.submit();
+    }
+</script>
+<form id = "userinfo" onsubmit="return checkForm()">
+    用户名称：<input type="text" name="user" onblur="checkUser()"/>
+    <span id="userspan"></span><br/>
+    输入密码：<input type="text" name="psw"><br/>
+    <span id="pswspan"></span>
+    <input type="submit" value="提交数据"/>
+</form>
+</body>
+</html>

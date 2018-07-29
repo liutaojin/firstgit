@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom checkbox</title>
+</head>
+<body>
+<script type="text/javascript">
+    function getSum() {
+        var sum = 0;
+        var collItemNodes = document.getElementsByName("item");
+        for (var x=0;x<collItemNodes.length; ++x){
+            if(collItemNodes[x].checked){
+                sum += parseInt(collItemNodes[x].value) ;
+            }
+        }
+        var sSum = sum+"元";
+        document.getElementById("sumid").innerHTML = sSum.fontcolor("red");
+    }
+    
+    function checkAll(Node) {
+        var collItemNodes = document.getElementsByName("item");
+        for(var x = 0; x<collItemNodes.length; ++x){
+            collItemNodes[x].checked = Node.checked;
+        }
+    }
+</script>
+<input type="checkbox" name="allitem" onclick="checkAll(this)"/>全选<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="item" value="4000"/>笔记本电脑：4000元<br/>
+<input type="checkbox" name="allitem" onclick="checkAll(this)"/>全选<br/>
+<input type="button" value="总金额是：" onclick="getSum()" /><span id="sumid"></span>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+<canvas id="myCanvas" width="1800" height="600" style="border: solid 1px;"></canvas>
+<!--
+HTML code
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas beginePath example</title>
+    <script>
+        function beginDemo() {
+            var canvas = document.getElementById("demo")
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.lineWidth = "3";
+            ctx.strokeStyle = "blue";
+            ctx.fillStyle = "orange";
+            ctx.moveTo(100, 100);
+            ctx.lineTo(100, 400);
+            ctx.lineTo(400, 400);
+            ctx.lineTo(400, 100);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            ctx.font = "32pt Arial";
+            ctx.strokeText("我是中文字", 120, 200);
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+        }
+    </script>
+</head>
+<body onload="beginDemo();">
+<canvas id="demo" width="800" height="800"></canvas>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<canvas id="demoCanvas" width="500" height="500">
+    <p>请使用支持HTML5的浏览器查看本实例</p>
+</canvas>
+&lt;!&ndash;-下面将演示一种绘制矩形的demo-&ndash;&gt;
+<script type="text/javascript">
+    //第一步：获取canvas元素
+    var canvasDom = document.getElementById("demoCanvas");
+    //第二步：获取上下文
+    var context = canvasDom.getContext('2d');
+    //第三步：指定绘制线样式、颜色
+    context.strokeStyle = "red";
+    //第四步：绘制矩形，只有线。内容是空的
+    context.strokeRect(10, 10, 190, 100);
+    //以下演示填充矩形。
+    context.fillStyle = "#00BFFF";
+    context.fillRect(10,10,190,100);
+
+    context.strokeStyle = "black";
+
+    context.font = "22pt solid";
+    context.strokeText("我是中文字", 10, 40);
+</script>
+</body>
+
+</html>-->
+
+<<!--canvas id="ft" width="400" height="400" style="background-color: #000;">您的浏览器不支持canvas。</canvas><br>
+<textarea id="input" row="6" col="60" style="width:300px;height: 100px;">这是一段测试字符串。This is an test string.当在文本框输入内容后会同步显示到canvas上。这是一段测试字符串。This is an test string.当在文本框输入内容后会同步显示到canvas上。</textarea>
+<script type="text/javascript" src="../../static/js/flowjs/word.js"></script>
+-->
+<script type="text/javascript" src="../../static/js/flowjs/arrow.js"></script>
+<script type="text/javascript" src="../../static/js/flowjs/step.js" ></script>
+<script type="text/javascript" src="../../static/js/flowjs/flow.js"></script>
+</body>
+
+</html>

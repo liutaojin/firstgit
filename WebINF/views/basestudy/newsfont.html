@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newsfont</title>
+    <style type="text/css">
+        a:link,a:visited{
+            color: #0044ff;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #ff8800;
+        }
+        #newstext{
+            width: 500px;
+            border:#00ff00 1px solid;
+            padding:10px;
+        }
+
+        .norm{
+            color:#00000;
+            font-size: 16px;
+            background-color: #cdd8d0;
+        }
+        .max{
+            color: #808080;
+            font-size: 28px;
+            background-color: #9ce9b4;
+        }
+        .min{
+            color: #ff0000;
+            font-size: 12px;
+            background-color: #f1b96d;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        function changeFont2(size,clr) {
+            var oNewsText = document.getElementById("newstext");
+            oNewsText.style.fontSize = size;
+            oNewsText.style.color = clr;
+        }
+        function changeFont(selectorName) {
+            var oNewsText = document.getElementById("newstext");
+            oNewsText.className = selectorName;
+        }
+    </script>
+    <h1>这是一个新闻标题</h1>
+    <hr/>
+    <a href="javascript:void(0)" onclick="changeFont('max')">大字体</a>
+    <a href="javascript:void(0)" onclick="changeFont('norm')">中字体</a>
+    <a href="javascript:void(0)" onclick="changeFont('min')">小字体</a>
+    <div id="newstext" class="norm">
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+    </div>
+
+
+</body>
+</html>

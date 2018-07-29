@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str_date = "9/28/2017 15:12:32";
+    var time2 = Date.parse(str_date);
+    var date = new Date(time2);
+    document.write(date.toLocaleString());
+
+    document.write("<hr/>");
+
+    var ntest = '12.32';
+    document.write(parseInt("12.23432"));
+
+    document.write("<hr/>");
+    var arr = [123,213234,4534];
+    for(hah in arr){
+        document.write(arr[hah]+" , ");
+    }
+    document.write("<hr/>");
+
+    function person() {
+
+    }
+    var p = new person();
+
+    p.name = "zhangsan";
+    p.age =  25;
+
+    p.show = function () {
+        document.write("show:"+this.name+": "+this.age);
+    }
+    p.show();
+
+</script>
+</body>
+</html

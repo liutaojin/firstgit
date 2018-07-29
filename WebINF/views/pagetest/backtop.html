@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .to_top_div {
+            width: 30px;
+            height: 40px;
+            padding: 20px;
+            font: 14px/20px arial;
+            text-align: center;
+            background: #06c;
+            position: absolute;
+            cursor: pointer;
+            color: #fff;
+        }
+    </style>
+    <script src="../../static/js/jquery-1.7.2.js"></script>
+</head>
+
+<body style="height: 2500px">
+<div>
+    <div id="to_top" class="to_top_div">返回顶部</div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $(function () {
+        $('div[class=to_top_div]').fadeOut();
+
+        var oTop = document.getElementById("to_top");
+        var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+        var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+        oTop.style.left = screenw - oTop.offsetWidth + "px";
+        oTop.style.top = screenh - oTop.offsetHeight + "px";
+        window.onscroll = function () {
+            var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+            oTop.style.top = screenh - oTop.offsetHeight + scrolltop + "px";
+
+            var scrollValue = $(window).scrollTop();
+            scrollValue > 100 ? $('div[class=to_top_div]').fadeIn() : $('div[class=to_top_div]').fadeOut();
+        }
+
+        $('#to_top').click(function () {
+            $("html,body").animate({scrollTop: 0}, 200);
+        });
+
+        /*oTop.onclick = function(){
+         document.documentElement.scrollTop = document.body.scrollTop =0;
+         }*/
+    });
+
+</script>
+
+</html>
+
+
+

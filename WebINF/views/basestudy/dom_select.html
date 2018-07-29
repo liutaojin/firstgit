@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom select</title>
+
+    <style type="text/css">
+        .clrclass{
+            height: 50px;
+            width: 50px;
+            float: left;
+            margin-right: 30px;
+        }
+        #text{
+            clear: left;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    function changeColor(node) {
+        document.getElementById("text").style.color = node.style.backgroundColor;
+    }
+</script>
+<div class="clrclass" id="clr1" style="background-color: red" onclick="changeColor(this)"></div>
+<div class="clrclass" id="clr2" style="background-color: green" onclick="changeColor(this)"></div>
+<div class="clrclass" id="clr3" style="background-color: blue" onclick="changeColor(this)"></div>
+
+<div id="text">
+    需要显示效果的文字<br/>
+    需要显示效果的文字<br/>
+    需要显示效果的文字<br/>
+    需要显示效果的文字<br/>
+</div>
+
+<hr/>
+
+<script type="text/javascript">
+    function changeColor2() {
+        var oSelectNode = document.getElementsByName("selectColor")[0];
+        document.getElementById("text").style.color = oSelectNode.options[oSelectNode.selectedIndex].value;
+
+    }
+</script>
+<select name="selectColor" onchange="changeColor2()">
+    <option value="black">--选择颜色--</option>
+    <option value="red">红色</option>
+    <option value="blue">蓝色</option>
+    <option value="green">绿色</option>
+</select>
+<select name="selectColor2" onchange="changeColor3()" class="selectclass">
+    <option value="black" style="background-color: black">--选择颜色--</option>
+    <option value="red" style="background-color: red"></option>
+    <option value="blue" style="background-color: blue"></option>
+    <option value="green" style="background-color: green"></option>
+</select>
+
+</body>
+</html>

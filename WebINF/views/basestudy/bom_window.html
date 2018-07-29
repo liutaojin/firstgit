@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM Window object</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function windowObjDemo() {
+            var name = window.navigator.appName;
+            var version = window.navigator.appVersion;
+            document.write("name:"+name+"<br/>"+"version:"+version);
+        }
+
+        function windowLocation() {
+            location.href = "http://www.baidu.com";
+        }
+    </script>
+
+    <input type="button" value="演示windows中的对象" onclick="windowLocation()"/>
+</body>
+</html>

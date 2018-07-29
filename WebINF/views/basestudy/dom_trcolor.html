@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/tablecss.css"/>
+    <title>dom trcolor</title>
+    <style type="text/css">
+        .one {
+            background-color: greenyellow;
+        }
+
+        .two {
+            background-color: yellow;
+        }
+
+        .over {
+            background-color: deepskyblue;
+        }
+    </style>
+    <script type="text/javascript">
+        var name;
+        function trColor() {
+            var oTabNode = document.getElementById("info");
+            var collTrNodes = oTabNode.rows;
+
+            for (var x = 1; x < collTrNodes.length; ++x) {
+                if (x % 2 == 1) {
+                    collTrNodes[x].className = "one";
+                } else
+                    collTrNodes[x].className = "two";
+
+                collTrNodes[x].onmouseover = function () {
+                    name = this.className;
+                    this.className = "over";
+
+                }
+                collTrNodes[x].onmouseout = function () {
+                    this.className = name;
+
+                }
+            }
+        }
+
+        onload = function () {
+            trColor();
+        }
+
+
+    </script>
+
+    <!--表格排序-->
+    <style type="text/css">
+        th a:link,a:visited{
+            color: #279bda;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript">
+        var flag = false;
+        function sortTable() {
+            var oTabNode = document.getElementById("info");
+            var collTrNodes = oTabNode.rows;
+            var trArr = [];
+            for(var x=1; x<collTrNodes.length; ++x){
+                trArr[x-1] = collTrNodes[x];
+            }
+            mySort(trArr);
+            //排序完了将对象重新加入表格
+            if(flag){
+                for(var x=0; x<trArr.length; ++x){
+                    //oTabNode.appendChild(trArr[x]);
+                    trArr[x].parentNode.appendChild(trArr[x]);
+                }
+                flag = false;
+            }else {
+                for(var x=trArr.length-1; x>=0; --x){
+                    trArr[x].parentNode.appendChild(trArr[x]);
+                }
+                flag = true;
+            }
+
+        }
+        function mySort(arr) {
+            for(var x=0; x<arr.length-1; ++x){
+                for(var y=x+1; y<arr.length; ++y){
+                    if(parseInt(arr[x].cells[1].innerHTML) > parseInt(arr[y].cells[1].innerHTML)){
+                        var temp = arr[x];
+                        arr[x] = arr[y];
+                        arr[y] = temp;
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<table id="info">
+    <tr>
+        <th>姓名</th>
+        <th><a href="javascript:void(0)" onclick="sortTable()">年龄</a></th>
+        <th>地址</th>
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>6</td>
+        <td>上海</td>
+    </tr>
+    <tr>
+        <td>小强</td>
+        <td>26</td>
+        <td>北京</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>29</td>
+        <td>广州</td>
+    </tr>
+    <tr>
+        <td>孙八</td>
+        <td>22</td>
+        <td>南京</td>
+    </tr>
+    <tr>
+        <td>二麻子</td>
+        <td>24</td>
+        <td>大连</td>
+    </tr>
+    <tr>
+        <td>犀利</td>
+        <td>32</td>
+        <td>青岛</td>
+    </tr>
+    <tr>
+        <td>旺财</td>
+        <td>19</td>
+        <td>深圳</td>
+    </tr>
+    <tr>
+        <td>周七</td>
+        <td>42</td>
+        <td>铁岭</td>
+    </tr>
+    <tr>
+        <td>毕姥爷</td>
+        <td>18</td>
+        <td>沈阳</td>
+    </tr>
+</table>
+</body>
+</html>

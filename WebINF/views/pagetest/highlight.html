@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #selectlist {
+            border: #919191 solid 0;
+            height: 160px;
+            width: 120px;
+            background-color: rgba(255, 255, 255, 0);
+            position: absolute;
+            bottom: 10px;
+            left: 1px;
+        }
+
+        .divbut {
+            margin: 5px;
+        }
+
+        .close {
+            width: 100px;
+            background-color: #bbd1f9;
+        }
+
+        .open {
+            width: 100px;
+            background-color: #4693d9;
+        }
+    </style>
+    <script src="../../static/js/highlightbutton.js"></script>
+</head>
+<body>
+
+<div id="selectlist">
+    <div class="divbut"><input class="close" type="button" name="1" value="大连路隧道" onclick="showStructLine(this)"></div>
+    <div class="divbut"><input class="open" type="button" name="2" value="申嘉湖高速" onclick="showStructLine(this)"></div>
+    <div class="divbut"><input class="close" type="button" name="3" value="同济路高架" onclick="showStructLine(this)"></div>
+    <div class="divbut"><input class="close" type="button" name="4" value="徐浦大桥" onclick="showStructLine(this)"></div>
+    <div class="divbut"><input class="close" type="button" name="5" value="虹梅南路隧道" onclick="showStructLine(this)"></div>
+</div>
+
+</body>
+</html>

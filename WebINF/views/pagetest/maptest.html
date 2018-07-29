@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="maptest0" style="background-color: #00ccff; width:50px; height: 50px"></div>
+<div id="maptest1" style="background-color: #00ff00; width:50px; height: 50px"></div>
+<div id="maptest2" style="background-color: #cdd8d0; width:50px; height: 50px"></div>
+
+<input id="btnS" value="start" type="button" onclick="settimer()">
+<input id="btnE" value="end" type="button" onclick="endtimer()">
+
+<script type="text/javascript">
+
+    var incre0;
+    var incre1;
+    var incre2;
+
+    var oldsumbf0;
+    var oldsumbf1;
+    var oldsumbf2;
+
+    var timer;
+
+    window.onload = function () {
+        var map = new Map();
+        for (var i = 0; i < 10; ++i) {
+            map.set(i, "salkfjsd");
+        }
+
+        incre0 = 5;
+        incre1 = 10;
+        incre2 = 15;
+
+        oldsumbf0 = 100;
+        oldsumbf1 = 100;
+        oldsumbf2 = 100;
+
+        //sleep(10000);
+
+        //alert(map.get(2));
+
+        document.getElementById("maptest0").innerHTML = oldsumbf0;
+        document.getElementById("maptest1").innerHTML = oldsumbf1;
+        document.getElementById("maptest2").innerHTML = oldsumbf2;
+
+
+
+
+
+        //settimer();
+        //timer = window.setInterval("loadDateRun()", 1000);
+
+        /*var sflag = 2;
+
+        switch (sflag){
+            case 1:
+                alert("1");
+                alert("2");
+                alert("3");
+                break;
+            case 2:
+                alert("11");
+                alert("22");
+                alert("33");
+                break;
+            default:
+                alert("none");
+                break;
+        }*/
+
+
+        //loadDateRun();
+    }
+
+    function settimer() {
+        timer = window.setInterval("loadDateRun()", 1000);
+    }
+
+    function loadDateRun() {
+        oldsumbf0 += incre0;
+        oldsumbf1 += incre1;
+        oldsumbf2 += incre2;
+
+        document.getElementById("maptest0").innerHTML = oldsumbf0;
+        document.getElementById("maptest1").innerHTML = oldsumbf1;
+        document.getElementById("maptest2").innerHTML = oldsumbf2;
+    }
+
+    function endtimer() {
+        window.clearInterval(timer);
+    }
+
+    function sleep(numberMillis) {
+        var now = new Date();
+        var exitTime = now.getTime() + numberMillis;
+        while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime)  return;
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

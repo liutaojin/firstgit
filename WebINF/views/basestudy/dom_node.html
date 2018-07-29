@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            border:#00ccff 1px solid;
+            width: 200px;
+            padding: 30px;
+            margin: 10px;
+        }
+        #div_1{
+            background-color: #00ccff;
+        }
+        #div_2{
+            background-color: #FFccff;
+        }
+        #div_3{
+            background-color: #cc00ff;
+        }
+        #div_4{
+            background-color: #00FF00;
+        }
+    </style>
+
+</head>
+<body>
+    <script type="text/javascript">
+        //创建并添加节点
+        function crtAndAdd() {
+            var oTextNode = document.createTextNode("这是一个新的文本节点");
+            var oDivNode = document.getElementById("div_1");
+            oDivNode.appendChild(oTextNode);
+        }
+        function crtAndAdd2() {
+            var oButNode = document.createElement("input");
+            oButNode.type = "button";
+            oButNode.value = "一个按钮";
+
+            var oDivNode = document.getElementById("div_1");
+            oDivNode.appendChild(oButNode);
+            
+        }
+        function delNode() {
+            var oDivNode = document.getElementById("div_2");
+            //oDivNode.removeNode(true);
+            oDivNode.parentNode.removeChild(oDivNode);
+        }
+        function updateNode() {
+            var oDivNode_1 = document.getElementById("div_1");
+            var oDivNode_3 = document.getElementById("div_3");
+            //oDivNode_1.replaceNode(oDivNode_3);
+            oDivNode_1.parentNode.replaceChild(oDivNode_3,oDivNode_1);
+
+        }
+        function cloneDemo() {
+            var oDivNode_1 = document.getElementById("div_1");
+            var oDivNode_3 = document.getElementById("div_3");
+            var oCopyDiv_3 = oDivNode_3.cloneNode(true);
+            oDivNode_1.parentNode.replaceChild(oCopyDiv_3,oDivNode_1);
+
+        }
+    </script>
+    <input type="button" value="创建并添加节点" onclick="crtAndAdd2()">
+    <input type="button" value="删除节点" onclick="delNode()">
+    <input type="button" value="修改节点" onclick="updateNode()">
+    <input type="button" value="克隆节点" onclick="cloneDemo()">
+    <div id="div_1">
+
+    </div>
+    <div id="div_2">
+        好好学习，day day up!
+    </div>
+    <div id="div_3">
+        div区域演示文字
+    </div>
+    <div id="div_4">
+        节点的增删改查
+    </div>
+</body>
+</html>
