@@ -6,6 +6,7 @@ public class gitTest {
     private String str11;
     private String str12;
     private String str13;
+    private String str14;
 
     private String str21;
     private String str22;
