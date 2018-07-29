@@ -7,4 +7,6 @@ public class gitTest {
     private String str12;
 
     private String str21;
+    private String str22;
+    private String str23;
 }
