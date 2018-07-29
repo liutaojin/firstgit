@@ -4,8 +4,8 @@ import com.sun.org.apache.xpath.internal.operations.String;
 
 public class gitTest {
     private String str111;
-    private String str121;
-    private String str13;
+    private String str112;
+    private String str132;
     private String str14;
     private String str15;
     private String str16;
@@ -13,8 +13,8 @@ public class gitTest {
     private String str18;
     private String str19;
 
-    private String str21;
-    private String str22;
+    private String str211;
+    private String str222;
     private String str23;
     private String str24;
     private String str25;
